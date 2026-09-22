@@ -14,8 +14,11 @@ JavaScript — with story timeline, sound, motion, and PDF export.
 
 > 以下是一本**不含任何人物**的演示书《山河小记》（AI 生成的四季风景），
 > 完整展示了混合视觉方向、时间线文案、氛围动效与声音体验。
-> 点开即可体验翻页 —— **仓库内已附完整可运行的演示书**（`docs/demo/`），
-> 克隆后在 `docs/demo/` 下运行 `python3 -m http.server 4173` 即可翻看。
+> 点开即可体验翻页 —— **已通过 GitHub Pages 在线部署**，仓库内也附完整可运行源码（`docs/demo/`）。
+
+**▶️ 在线体验**（无需克隆，点开即翻）：
+- 演示书：**https://zhaosenlin12-creator.github.io/img-memory-skill/demo/**
+- 仓库首页（自动跳转演示书）：**https://zhaosenlin12-creator.github.io/img-memory-skill/**
 
 ![山河小记 · 翻页书展开效果](docs/images/demo-open.jpg)
 
@@ -23,8 +26,7 @@ JavaScript — with story timeline, sound, motion, and PDF export.
 |---|---|---|---|
 | ![封面](docs/images/demo-cover.jpg) | ![章节页](docs/images/demo-divider.jpg) | ![照片卡](docs/images/demo-card.jpg) | ![尾声](docs/images/demo-closing.jpg) |
 
-**在线预览（可选）**：仓库推送到 GitHub 后，进入 **Settings → Pages → Source: Deploy from a branch → main / /docs**，
-演示书就会发布到 `https://<你的账号>.github.io/img-memory-skill/demo/`。
+> 本地运行：克隆仓库后在 `docs/demo/` 下执行 `python3 -m http.server 4173`，浏览器打开 `localhost:4173` 即可翻看。
 
 ---
 
