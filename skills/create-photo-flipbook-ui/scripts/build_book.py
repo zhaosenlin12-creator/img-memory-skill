@@ -262,7 +262,9 @@ def main():
                     src = alt
                 else:
                     raise SystemExit(f"Missing photo for card {c['id']}: {src}")
-            shutil.copyfile(src, os.path.join(args.out, "assets", "photos", f"t-{c['id']:02d}.jpg"))
+            dst = os.path.join(args.out, "assets", "photos", f"t-{c['id']:02d}.jpg")
+            if os.path.abspath(src) != os.path.abspath(dst):
+                shutil.copyfile(src, dst)
 
     # copy runtime (flipbook.js patched once, book-extra.js, styles, vendor)
     shutil.copyfile(

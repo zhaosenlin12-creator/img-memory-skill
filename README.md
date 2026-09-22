@@ -10,6 +10,24 @@ JavaScript — with story timeline, sound, motion, and PDF export.
 
 ---
 
+## 🖼️ 效果预览
+
+> 以下是一本**不含任何人物**的演示书《山河小记》（AI 生成的四季风景），
+> 完整展示了混合视觉方向、时间线文案、氛围动效与声音体验。
+> 点开即可体验翻页 —— **仓库内已附完整可运行的演示书**（`docs/demo/`），
+> 克隆后在 `docs/demo/` 下运行 `python3 -m http.server 4173` 即可翻看。
+
+![山河小记 · 翻页书展开效果](docs/images/demo-open.jpg)
+
+| 封面（插画 + 花瓣动效） | 章节页（引导语 + 星光） | 照片卡（文案 + 日期地点） | 尾声（暖光收尾） |
+|---|---|---|---|
+| ![封面](docs/images/demo-cover.jpg) | ![章节页](docs/images/demo-divider.jpg) | ![照片卡](docs/images/demo-card.jpg) | ![尾声](docs/images/demo-closing.jpg) |
+
+**在线预览（可选）**：仓库推送到 GitHub 后，进入 **Settings → Pages → Source: Deploy from a branch → main / /docs**，
+演示书就会发布到 `https://<你的账号>.github.io/img-memory-skill/demo/`。
+
+---
+
 ## ✨ 功能亮点
 
 - **3D 翻页书**：纯 HTML/CSS/JS，无框架依赖；鼠标拖拽、点击页角、按钮、键盘方向键均可翻页；桌面双页展开、手机单页自适应。
@@ -69,8 +87,11 @@ create-photo-flipbook-ui/
 │       └── make_print.py                # PDF 导出源
 ├── examples/
 │   ├── vanilla-html-book/               # 无依赖 HTML 参考实现
-│   └── metadata.sample.json             # ★ 元数据格式样例（28 卡 4 章）
-├── docs/images/                         # README 工作流示例图
+│   ├── metadata.sample.json             # ★ 元数据格式样例（28 卡 4 章）
+│   └── demo-metadata.json               # 演示书《山河小记》元数据（2 章 6 卡）
+├── docs/
+│   ├── demo/                            # ★ 完整可运行的演示书（可直接开 GitHub Pages）
+│   └── images/                          # README 工作流示例图 + 效果预览图
 ├── evals/                               # 前向评估（用例/评分/运行器）
 └── tests/validate_repo.py               # 仓库结构校验
 ```

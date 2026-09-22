@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>山河小记 · A Little Journey · 四季风景</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="room">
+      <header class="book-header">
+        <span>Baby memory book</span>
+        <h1>山河小记</h1>
+        <div class="header-right">
+          <button id="music-toggle" type="button" aria-label="Background music" title="Background music">&#9835;</button>
+          <span id="orientation">Open spread</span>
+        </div>
+      </header>
+
+      <section class="stage" aria-label="Interactive photo book">
+        <div class="book-rig">
+          <div id="book" class="book" data-page-width="360" data-page-height="640">
+            <article class="book-page cover-page" data-density="hard" aria-label="Front cover">
+              <img class="bg bg--kenburns" src="assets/pages/cover.jpg" alt="Cover art" />
+              <div class="scrim scrim--cover"></div>
+              <div class="particles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="cover-content">
+                <p class="kicker">A little journey</p>
+                <h1>山河小记<br/>慢慢去看</h1>
+                <p class="subtitle">A Little Journey · 四季风景</p>
+                <p class="folio">2026.03 — 2026.11</p>
+              </div>
+            </article>
+            <article class="book-page text-page" aria-label="Title page">
+              <div class="text-content">
+                <p class="kicker">To our little one</p>
+                <p class="body">把看过的山、湖、田野和星空，<br/>收进这本小书里。<br/>四季轮回，步履不停——每一程都值得被记住。</p>
+                <p class="dedication">—— 写给所有想出发的人</p>
+              </div>
+              <p class="page-number">02</p>
+            </article>
+            <article class="book-page divider" aria-label="第一章 山与湖">
+              <img class="bg bg--kenburns" src="assets/pages/ch1.jpg" alt="Chapter art" />
+              <div class="scrim scrim--divider"></div>
+              <div class="twinkles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="divider-content">
+                <p class="kicker">Chapter One</p>
+                <h2>第一章 · 山与湖</h2>
+                <p class="lead">从清晨的湖边出发——<br/>世界很大，脚步很轻。</p>
+                <p class="motto">山不过来，我就过去。</p>
+              </div>
+            </article>
+            <article class="book-page card card--ch1" aria-label="Photo 01">
+              <img class="card-photo" src="assets/photos/t-01.jpg" alt="Photo 01" />
+              <div class="scrim"></div>
+              <div class="motif motif--heart" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 21s-7-4.6-9.6-9.2C.9 8.6 3.4 5 7 5c2 0 3.4 1 5 2.8C13.6 6 15 5 17 5c3.6 0 6.1 3.6 4.6 6.8C19 16.4 12 21 12 21z"/></svg></div>
+              <div class="ambient" aria-hidden="true"></div>
+              <div class="card-caption">
+                <p class="kicker">第一章 · 山与湖</p>
+                <p class="card-text">清晨的湖面像一面安静的镜子，把远山和晨光都收进了怀里。</p>
+                <p class="card-meta">2026年3月 · 湖边</p>
+                <p class="card-age">第 1 站 · 湖畔清晨</p>
+              </div>
+              <p class="page-number">04</p>
+            </article>
+            <article class="book-page card card--ch1" aria-label="Photo 02">
+              <img class="card-photo" src="assets/photos/t-02.jpg" alt="Photo 02" />
+              <div class="scrim"></div>
+              <div class="motif motif--heart" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 21s-7-4.6-9.6-9.2C.9 8.6 3.4 5 7 5c2 0 3.4 1 5 2.8C13.6 6 15 5 17 5c3.6 0 6.1 3.6 4.6 6.8C19 16.4 12 21 12 21z"/></svg></div>
+              <div class="ambient" aria-hidden="true"></div>
+              <div class="card-caption">
+                <p class="kicker">第一章 · 山与湖</p>
+                <p class="card-text">阳光穿过树梢落成光斑，小径上走一走，连呼吸都变慢了。</p>
+                <p class="card-meta">2026年4月 · 森林</p>
+                <p class="card-age">第 2 站 · 林间拾光</p>
+              </div>
+              <p class="page-number">05</p>
+            </article>
+            <article class="book-page card card--ch1" aria-label="Photo 03">
+              <img class="card-photo" src="assets/photos/t-03.jpg" alt="Photo 03" />
+              <div class="scrim"></div>
+              <div class="motif motif--heart" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 21s-7-4.6-9.6-9.2C.9 8.6 3.4 5 7 5c2 0 3.4 1 5 2.8C13.6 6 15 5 17 5c3.6 0 6.1 3.6 4.6 6.8C19 16.4 12 21 12 21z"/></svg></div>
+              <div class="ambient" aria-hidden="true"></div>
+              <div class="card-caption">
+                <p class="kicker">第一章 · 山与湖</p>
+                <p class="card-text">站上草甸，云海在脚下翻涌，雪山顶上是更远的远方。</p>
+                <p class="card-meta">2026年5月 · 高山草甸</p>
+                <p class="card-age">第 3 站 · 云上草原</p>
+              </div>
+              <p class="page-number">06</p>
+            </article>
+            <article class="book-page divider" aria-label="第二章 光与夜">
+              <img class="bg bg--kenburns" src="assets/pages/ch2.jpg" alt="Chapter art" />
+              <div class="scrim scrim--divider"></div>
+              <div class="twinkles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="divider-content">
+                <p class="kicker">Chapter Two</p>
+                <h2>第二章 · 光与夜</h2>
+                <p class="lead">白天的金色与夜晚的银河——<br/>都被温柔地收藏。</p>
+                <p class="motto">黄昏有归途，夜里也有星光。</p>
+              </div>
+            </article>
+            <article class="book-page card card--ch2" aria-label="Photo 04">
+              <img class="card-photo" src="assets/photos/t-04.jpg" alt="Photo 04" />
+              <div class="scrim"></div>
+              <div class="motif motif--moon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a7 7 0 0 0 10.7 10.7z"/></svg></div>
+              <div class="ambient" aria-hidden="true"></div>
+              <div class="card-caption">
+                <p class="kicker">第二章 · 光与夜</p>
+                <p class="card-text">黄昏把麦田染成金色，风一吹，整片田野都在发光。</p>
+                <p class="card-meta">2026年6月 · 黄昏麦田</p>
+                <p class="card-age">第 4 站 · 麦浪与落日</p>
+              </div>
+              <p class="page-number">08</p>
+            </article>
+            <article class="book-page card card--ch2" aria-label="Photo 05">
+              <img class="card-photo" src="assets/photos/t-05.jpg" alt="Photo 05" />
+              <div class="scrim"></div>
+              <div class="motif motif--moon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a7 7 0 0 0 10.7 10.7z"/></svg></div>
+              <div class="ambient" aria-hidden="true"></div>
+              <div class="card-caption">
+                <p class="kicker">第二章 · 光与夜</p>
+                <p class="card-text">溪水穿过古村，石桥连着人家，暮色里亮起一盏盏暖灯。</p>
+                <p class="card-meta">2026年7月 · 溪谷村落</p>
+                <p class="card-age">第 5 站 · 溪声与灯火</p>
+              </div>
+              <p class="page-number">09</p>
+            </article>
+            <article class="book-page card card--ch2" aria-label="Photo 06">
+              <img class="card-photo" src="assets/photos/t-06.jpg" alt="Photo 06" />
+              <div class="scrim"></div>
+              <div class="motif motif--moon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a7 7 0 0 0 10.7 10.7z"/></svg></div>
+              <div class="ambient" aria-hidden="true"></div>
+              <div class="card-caption">
+                <p class="kicker">第二章 · 光与夜</p>
+                <p class="card-text">帐篷里的暖光与头顶的银河呼应——这一夜，星星离得很近。</p>
+                <p class="card-meta">2026年8月 · 夏夜营地</p>
+                <p class="card-age">第 6 站 · 星空营地</p>
+              </div>
+              <p class="page-number">10</p>
+            </article>
+            <article class="book-page closing-page" aria-label="Closing page">
+              <img class="bg bg--kenburns" src="assets/pages/closing.jpg" alt="Closing art" />
+              <div class="scrim scrim--divider"></div>
+              <div class="twinkles" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+              <div class="divider-content">
+                <p class="kicker">Epilogue</p>
+                <h2>四季看过了，路还在脚下。<br/>愿每一个想去远方的人，都能遇见自己的山河。</h2>
+              </div>
+            </article>
+            <article class="book-page back-cover" data-density="hard" aria-label="Back cover">
+              <img class="bg" src="assets/pages/back.jpg" alt="Back cover art" />
+              <div class="scrim scrim--back"></div>
+              <div class="particles particles--soft" aria-hidden="true"><i></i><i></i><i></i></div>
+              <p class="back-folio">陪你长大 · A Little Journey</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <footer class="controls" aria-label="Book controls">
+        <button id="previous" type="button" aria-label="Previous page">&larr;</button>
+        <div class="status" aria-live="polite">
+          <span id="page-status">Cover</span>
+          <small>Drag / tap a corner / arrow keys · ♪ music</small>
+        </div>
+        <button id="next" type="button" aria-label="Next page">&rarr;</button>
+      </footer>
+    </main>
+
+    <audio id="bgm" src="assets/audio/music.mp3" loop preload="auto"></audio>
+    <audio id="sfx-flip" src="assets/audio/flip.mp3" preload="auto"></audio>
+
+    <script src="vendor/page-flip.browser.js"></script>
+    <script src="flipbook.js"></script>
+    <script src="book-extra.js"></script>
+  </body>
+</html>
