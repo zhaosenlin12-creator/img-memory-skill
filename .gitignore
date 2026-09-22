@@ -8,3 +8,12 @@
 **/node_modules/
 evals/results/
 marketing/
+
+# Private or generated content — never upload personal photos, built books,
+# working metadata, or scratch previews.
+img/
+book/
+captions.json
+preview/
+_*
+*.log

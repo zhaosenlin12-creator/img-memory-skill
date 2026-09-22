@@ -2,6 +2,7 @@
 from pathlib import Path
 import re
 import subprocess
+import sys
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -68,11 +69,16 @@ def main() -> None:
         SKILL / "assets" / "html" / "index.html",
         SKILL / "assets" / "html" / "styles.css",
         SKILL / "assets" / "html" / "flipbook.js",
+        SKILL / "assets" / "html" / "book-extra.js",
         SKILL / "assets" / "html" / "html-contract.test.mjs",
         SKILL / "assets" / "html" / "vendor" / "page-flip.browser.js",
         SKILL / "scripts" / "make_contact_sheet.py",
+        SKILL / "scripts" / "build_book.py",
+        SKILL / "scripts" / "make_print.py",
+        SKILL / "scripts" / "make_preview.py",
         SKILL / "references" / "book-editing.md",
         SKILL / "references" / "photo-skill-catalog.md",
+        SKILL / "references" / "card-design-system.md",
         ROOT / "examples" / "vanilla-html-book" / "index.html",
         ROOT / "evals" / "run_eval.py",
         ROOT / "evals" / "cases" / "hawaii-v1" / "prompt.md",
@@ -107,7 +113,7 @@ def main() -> None:
         check=True,
     )
     subprocess.run(
-        ["python3", "-m", "unittest", str(ROOT / "tests" / "test_contact_sheet.py")],
+        [sys.executable, "-m", "unittest", str(ROOT / "tests" / "test_contact_sheet.py")],
         check=True,
     )
     subprocess.run(

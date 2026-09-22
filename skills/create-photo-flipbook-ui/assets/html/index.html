@@ -1,63 +1,108 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Vanilla HTML Photo Book</title>
+    <title>陪你长大 · A Little Journey</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="room">
       <header class="book-header">
-        <span>HTML prototype</span>
-        <h1>Quiet Light</h1>
-        <span id="orientation">Open spread</span>
+        <span>Baby memory book</span>
+        <h1>陪你长大</h1>
+        <div class="header-right">
+          <button id="music-toggle" type="button" aria-label="Background music" title="Background music">&#9835;</button>
+          <span id="orientation">Open spread</span>
+        </div>
       </header>
 
       <section class="stage" aria-label="Interactive photo book">
         <div class="book-rig">
-          <div id="book" class="book" data-page-width="471" data-page-height="640">
-            <article class="book-page cover" data-density="hard" aria-label="Front cover">
-              <div class="cover-mark">QL</div>
-              <div>
-                <p class="kicker">A small photo study</p>
-                <h2>Quiet<br />Light</h2>
+          <div id="book" class="book" data-page-width="360" data-page-height="640">
+            <article class="book-page cover-page" data-density="hard" aria-label="Front cover">
+              <img class="bg bg--kenburns" src="assets/pages/cover.jpg" alt="Cover art" />
+              <div class="scrim scrim--cover"></div>
+              <div class="particles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="cover-content">
+                <p class="kicker">A little journey</p>
+                <h1>陪你<br/>长大</h1>
+                <p class="subtitle">我们的旅行记忆 · Baby Memory Book</p>
+                <p class="folio">2025.12 — 2026.09</p>
               </div>
-              <p class="folio">Photographs, 2026</p>
             </article>
 
-            <article class="book-page title-page" aria-label="Title page">
-              <p class="kicker">Volume one</p>
-              <h2>Light moving<br />through ordinary rooms.</h2>
-              <p class="page-number">01</p>
+            <article class="book-page text-page" aria-label="Title page">
+              <div class="text-content">
+                <p class="kicker">To our little one</p>
+                <p class="body">这是一本关于你的小书。<br/>从妈妈肚子里的第一个心跳，到你看过的第一片湖、第一朵向日葵——<br/>所有珍贵的小瞬间，都被我们收在了这里。</p>
+                <p class="dedication">—— 写给我们最亲爱的宝贝</p>
+              </div>
+              <p class="page-number">02</p>
             </article>
 
-            <article class="book-page photo-layout photo-layout--full" aria-label="Photo page two">
-              <!-- Replace the placeholder below with: <img src="assets/photos/your-file.jpg" alt="..."> -->
-              <div class="photo-placeholder photo-placeholder--one" role="img" aria-label="Photo placeholder"></div>
-              <p class="page-number page-number--light">02</p>
+            <article class="book-page divider" aria-label="Chapter divider">
+              <img class="bg bg--kenburns" src="assets/pages/ch1.jpg" alt="Chapter art" />
+              <div class="scrim scrim--divider"></div>
+              <div class="twinkles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="divider-content">
+                <p class="kicker">Chapter One</p>
+                <h2>第一章 · 遇见你之前</h2>
+                <p class="lead">记录于你出生前的最后时光——<br/>妈妈每一天都在想象你的样子。</p>
+                <p class="motto">你还没来，爱已经先到了。</p>
+              </div>
             </article>
 
-            <article class="book-page photo-layout photo-layout--framed" aria-label="Photo page three">
-              <div class="photo-placeholder photo-placeholder--two" role="img" aria-label="Photo placeholder"></div>
-              <p class="caption">The afternoon held its breath.</p>
-              <p class="page-number">03</p>
-            </article>
-
-            <article class="book-page photo-layout photo-layout--split" aria-label="Photo page four">
-              <div class="photo-placeholder photo-placeholder--three" role="img" aria-label="Photo placeholder"></div>
-              <div class="photo-placeholder photo-placeholder--four" role="img" aria-label="Photo placeholder"></div>
+            <article class="book-page card card--ch1" aria-label="Photo card one">
+              <img class="card-photo" src="assets/photos/t-01.jpg" alt="Photo one" />
+              <div class="scrim"></div>
+              <div class="motif motif--heart" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 21s-7-4.6-9.6-9.2C.9 8.6 3.4 5 7 5c2 0 3.4 1 5 2.8C13.6 6 15 5 17 5c3.6 0 6.1 3.6 4.6 6.8C19 16.4 12 21 12 21z"/></svg>
+              </div>
+              <div class="ambient" aria-hidden="true"></div>
+              <div class="card-caption">
+                <p class="kicker">第一章 · 遇见你之前</p>
+                <p class="card-text">小小的奶瓶贴上你住的地方，妈妈在想：你会喜欢什么味道的奶呢？</p>
+                <p class="card-meta">2025年12月 · 家里</p>
+                <p class="card-age">孕晚期 · 你快要来了</p>
+              </div>
               <p class="page-number">04</p>
             </article>
 
-            <article class="book-page closing-page" aria-label="Closing page">
-              <p>Some light stays<br />after the room is gone.</p>
+            <article class="book-page card card--ch2" aria-label="Photo card two">
+              <img class="card-photo" src="assets/photos/t-02.jpg" alt="Photo two" />
+              <div class="scrim"></div>
+              <div class="motif motif--moon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="26" height="26"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a7 7 0 0 0 10.7 10.7z"/></svg>
+              </div>
+              <div class="ambient" aria-hidden="true"></div>
+              <div class="card-caption">
+                <p class="kicker">第二章 · 初次见面</p>
+                <p class="card-text">刚来到这个世界的你，睡得安稳又香甜。欢迎你呀，我们的小宝贝。</p>
+                <p class="card-meta">2026年2月7日 · 医院</p>
+                <p class="card-age">出生第1天</p>
+              </div>
               <p class="page-number">05</p>
+            </article>
+
+            <article class="book-page closing-page" aria-label="Closing page">
+              <img class="bg bg--kenburns" src="assets/pages/closing.jpg" alt="Closing art" />
+              <div class="scrim scrim--divider"></div>
+              <div class="twinkles" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+              <div class="divider-content">
+                <p class="kicker">Epilogue</p>
+                <h2>你慢慢长大，世界慢慢展开。<br/>这本书会一直替你记着：你曾那么小，小到被爱轻轻一抱，就装下了整个童年。</h2>
+              </div>
             </article>
 
             <article class="book-page inside-cover" aria-label="Inside back cover"></article>
 
-            <article class="book-page back-cover" data-density="hard" aria-label="Back cover"></article>
+            <article class="book-page back-cover" data-density="hard" aria-label="Back cover">
+              <img class="bg" src="assets/pages/back.jpg" alt="Back cover art" />
+              <div class="scrim scrim--back"></div>
+              <div class="particles particles--soft" aria-hidden="true"><i></i><i></i><i></i></div>
+              <p class="back-folio">陪你长大 · A Little Journey</p>
+            </article>
           </div>
         </div>
       </section>
@@ -66,13 +111,17 @@
         <button id="previous" type="button" aria-label="Previous page">&larr;</button>
         <div class="status" aria-live="polite">
           <span id="page-status">Cover</span>
-          <small>Drag, swipe, click a corner, or use arrow keys</small>
+          <small>Drag / tap a corner / arrow keys · ♪ music</small>
         </div>
         <button id="next" type="button" aria-label="Next page">&rarr;</button>
       </footer>
     </main>
 
+    <audio id="bgm" src="assets/audio/music.mp3" loop preload="auto"></audio>
+    <audio id="sfx-flip" src="assets/audio/flip.mp3" preload="auto"></audio>
+
     <script src="vendor/page-flip.browser.js"></script>
     <script src="flipbook.js"></script>
+    <script src="book-extra.js"></script>
   </body>
 </html>

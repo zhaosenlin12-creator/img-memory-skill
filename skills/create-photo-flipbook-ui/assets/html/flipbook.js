@@ -67,6 +67,7 @@ pageFlip.on("init", (event) => updateOrientation(event.data.mode));
 pageFlip.on("changeOrientation", (event) => updateOrientation(event.data));
 
 pageFlip.loadFromHTML(pages);
+window.__bookFlip = pageFlip;
 updateControls();
 
 previousButton.addEventListener("click", () => {

@@ -1,6 +1,6 @@
 ---
 name: create-photo-flipbook-ui
-description: Curate and sequence supplied photographs, finished pages, contact sheets, or existing book HTML into a responsive 3D page-turning photobook website using raw HTML, CSS, and vanilla JavaScript. Use for photo flipbooks, albums, zines, lookbooks, portfolios, sequencing raw photos, wrapping designed pages, or orchestrating a visual photo skill into a book. This style-neutral engine owns book editing and presentation while routing visual transformation to a curated list of separate photo skills.
+description: Curate and sequence supplied photographs, finished pages, contact sheets, or existing book HTML into a responsive 3D page-turning photobook website using raw HTML, CSS, and vanilla JavaScript. Use for photo flipbooks, albums, zines, lookbooks, portfolios, sequencing raw photos, wrapping designed pages, or orchestrating a visual photo skill into a book. The advanced default path adds a story timeline with dates/places/ages, mixed visual direction (illustrated covers plus artistic photo cards), ambient motion, background music and page-flip sound, and PDF export, all data-driven from one metadata file. This style-neutral engine owns book editing and presentation while routing visual transformation to a curated list of separate photo skills.
 ---
 
 # Create Photo Flipbook UI
@@ -24,7 +24,7 @@ Trigger this path only from an explicit no-edit or assemble-as-is request. It ap
 - Preserve a supplied front cover. Otherwise make a restrained cover whose surface color matches the empty back cover.
 - Copy the runtime, insert the pages, set ratio and colors, validate, and stop.
 
-### Default editing path
+### Default editing path (advanced)
 
 Use this path whenever the user has not explicitly declined editing. For more than three images, generate and actually view a contact sheet before making editorial decisions; creating the file is not inspection.
 
@@ -34,12 +34,14 @@ Follow this order:
 
 1. Generate and view a source contact sheet.
 2. Explore the collection before editing it. Identify its strongest subjects, recurring motifs, visual range, emotional register, technical limits, and possible forms. Open originals only to resolve focus, expression, crop, or near-duplicates.
-3. Read [photo-skill-catalog.md](references/photo-skill-catalog.md). Use the user's named compatible photo skills when supplied; otherwise choose the smallest set of listed skills that fits the collection. One is usually sufficient, but choose more than one when their combination has a clear purpose and can form one coherent book. If none fits, keep the photographs visually unchanged rather than inventing a house style.
-4. Read every selected photo skill's `SKILL.md` and required resources. Separate each skill's non-negotiable invariants from adaptable variables. When combining skills, define a shared visual system and a distinct book-level role for each skill before editing.
-5. Read [book-editing.md](references/book-editing.md) as baseline knowledge, not a fixed recipe. Let the selected photo skills, the photographs, and the intended book experience determine the actual edit. Curate only photographs that are both strong and suitable for that direction, then design the complete sequence and its changing rhythm before generating artwork. Do not preserve every image or filename order automatically.
-6. Generate the outside-cover spread first: the left half is the back cover and the right half is the front cover. Then generate every interior double-page spread in reading order. Keep one spread ratio and consistent dimensions, protect the intended gutter, and treat each accepted spread as indivisible artwork.
-7. Split the accepted outside-cover spread so its right half becomes the first front-cover leaf and its left half becomes the final back-cover leaf. Split each accepted interior spread only at its intended gutter. Assemble the leaves in the bundled runtime without rebuilding their internal design in HTML.
-8. Build a contact sheet from the accepted full spreads in reading order. Inspect it using every relevant selected photo skill's quality gate and the book-level rhythm critique in [book-editing.md](references/book-editing.md). Regenerate only clear visual failures, revise only clear sequencing failures, then produce final HTML and PDF when requested.
+3. **Draft the story timeline and metadata.** Before writing a single page, build the narrative spine: propose chapters (or one continuous arc), assign each selected photo a date, a place, and an age/stage line, and draft one warm caption per photo plus a lead sentence and motto per chapter. When dates or places are unknown, infer them from photo content (home, hospital, park, lake, field, village...) and mark them clearly as draft so the user can correct them. Keep all of this in one metadata JSON (see `scripts/build_book.py` for the schema) so the book is fully data-driven and every caption, date, place, and age is a single editable field.
+4. Read [photo-skill-catalog.md](references/photo-skill-catalog.md). Use the user's named compatible photo skills when supplied; otherwise choose the smallest set of listed skills that fits the collection. One is usually sufficient, but choose more than one when their combination has a clear purpose and can form one coherent book. If none fits, keep the photographs visually unchanged rather than inventing a house style. Read [book-editing.md](references/book-editing.md) as baseline knowledge, not a fixed recipe, and [card-design-system.md](references/card-design-system.md) for the bundled default card grammar.
+5. **Choose the visual direction.** The default mixed direction keeps real people recognizable: illustrated cover, chapter dividers, and closing (generated or supplied artwork) carry the stylized, storybook warmth, while content cards keep AI-treated photographs with the subject's face and features untouched. If the user names a photo skill or a specific style, let its grammar override the default; the mixed structure (illustrated bookends + photographic content) survives because it keeps faces true while still looking designed.
+6. **Treat the photographs.** For the content cards, deliver one treated image per selected photo at the leaf ratio (9:16 by default) with a consistent treatment: warm, soft-light grading, film grain, gentle re-framing to center the subject, and no change to facial identity. Re-frame non-matching ratios by extending environment color, not by hard-cropping people. If a photo skill or safety gate rejects a specific image, keep the original photo and mark that card `"raw": true` so the runtime applies a CSS warm-filter fallback; disclose the fallback in your report. Curate only photographs that are both strong and suitable for that direction, then design the complete sequence and its changing rhythm before generating artwork. Do not preserve every image or filename order automatically.
+7. Generate the outside-cover spread first: the left half is the back cover and the right half is the front cover. Then generate every interior double-page spread in reading order, or assemble single-leaf pages when the metadata-driven card path is chosen. Keep one spread ratio and consistent dimensions, protect the intended gutter, and treat each accepted spread as indivisible artwork.
+8. **Add sound and motion.** Generate a warm, loop-friendly background track (30–60s) and a soft paper-flip sound, place them at `assets/audio/music.mp3` and `assets/audio/flip.mp3`, and keep the template's `<audio>` wiring and `book-extra.js` (music toggle + flip sound). Use the default ambient motion (ken-burns on illustrated pages, floating particles, twinkling stars, warm bokeh, chapter motifs) from the design system; adapt or reduce it when the book's register is quieter. If audio generation is unavailable, the book still works silently — report that.
+9. **Assemble with the bundled scripts.** Run `scripts/build_book.py` against the metadata to emit `index.html` into the output root, copy the runtime, and patch `flipbook.js` to expose the engine for sound hooks. Run `scripts/make_preview.py` to inspect every leaf at a glance, and `scripts/make_print.py` to produce `print.html` for PDF export.
+10. Build a contact sheet from the accepted full spreads in reading order. Review the final contact sheet / page preview using every relevant selected photo skill's quality gate and the book-level rhythm critique in [book-editing.md](references/book-editing.md). Regenerate only clear visual failures, revise only clear sequencing failures, then export final HTML and PDF when requested.
 
 ### Mixed or existing-book inputs
 
@@ -47,7 +49,7 @@ On the default editing path, preserve the internal artwork of polished pages whi
 
 ## Visual skill routing
 
-- Keep this skill free of visual styles, artist references, palettes, texture systems, typography systems, and generation prompts.
+- Keep this skill free of visual styles, artist references, palettes, texture systems, typography systems, and generation prompts. The bundled [card-design-system.md](references/card-design-system.md) is a default grammar owned by this skill; a user-named photo skill overrides its look.
 - Choose one or more visual photo skills according to the collection. Prefer the smallest sufficient set; combine skills only when their visual languages are compatible and their different roles strengthen the sequence.
 - Treat [photo-skill-catalog.md](references/photo-skill-catalog.md) as the default allowlist. A user may explicitly name another available photo skill; use it when its output can become a page or spread without violating the runtime contract.
 - If a selected skill is unavailable, state that briefly and use the closest available catalog entry only when the substitution preserves the requested direction.
@@ -68,11 +70,9 @@ Treat each selected photo skill as a visual grammar, not a rigid spread template
 
 Copy `assets/html/` into the output root when a runtime is needed. Keep raw `.book-page` elements inside `#book`; do not introduce React, TypeScript, JSX, Vite, or a required page manifest.
 
-Place `index.html` directly in the requested output root. Do not create a nested `site/` directory unless requested. Put unchanged photographs under `assets/photos/`, accepted full-spread artwork under `assets/spreads/`, and split runtime leaves under `assets/pages/`.
+Place `index.html` directly in the requested output root. Do not create a nested `site/` directory unless requested. Put unchanged photographs under `assets/photos/`, accepted full-spread artwork under `assets/spreads/`, split runtime leaves under `assets/pages/`, and generated audio under `assets/audio/`.
 
-Make each transformed `.book-page` contain only its accepted artwork image. Do not reconstruct, decorate, caption, or repair another photo skill's artwork with HTML or CSS.
-
-Do not read or rewrite the vendored page-turn library. On the fast path, copy the runtime and edit only `index.html`, page-size settings, and necessary theme tokens.
+Make each transformed `.book-page` contain only its accepted artwork image. Do not reconstruct, decorate, caption, or repair another photo skill's artwork with HTML or CSS. For cards built by this skill's own default grammar (metadata-driven captions), the HTML caption block is the intended artwork and is editable data, not a repair.
 
 Keep these invariants:
 
@@ -83,31 +83,36 @@ Keep these invariants:
 - Preserve mouse, touch, buttons, keyboard, desktop-spread, and mobile single-page behavior.
 - Constrain the book by viewport width and height.
 - Do not add a visible center gap or book-level overlay. Use page-bound pseudo-elements above page content for spine shadows so photographs cannot cover them and the shadows move with turns.
+- Keep the sound wiring intact: `#bgm` looped track, `#sfx-flip` page-flip sound, `#music-toggle` button, `book-extra.js` started after `flipbook.js`, and `window.__bookFlip` exposed by `flipbook.js`. All audio failures must fail silently.
 
-## Contact sheets
+## Scripts
 
-Pass filenames in the exact display order; the script does not discover or sort files. Use it first for source photos and again for accepted full spreads. Stable IDs come from the supplied labels.
+Pass filenames in the exact display order; the scripts do not discover or sort files. Stable IDs come from the supplied labels.
 
 ```bash
+# source photos or accepted spreads
 python3 scripts/make_contact_sheet.py --output contact-sheet.jpg image-03.jpg image-01.jpg image-08.jpg
-python3 scripts/make_contact_sheet.py --output spread-contact-sheet.jpg spread-00-cover.png spread-01.png spread-02.png
+
+# assemble the book from metadata + treated photos + runtime
+python3 scripts/build_book.py --runtime skills/create-photo-flipbook-ui/assets/html \
+  --metadata captions.json --photos assets/photos --out book
+
+# inspect every leaf as a preview grid, then export a per-leaf PDF
+python3 scripts/make_preview.py --book book --out preview
+python3 scripts/make_print.py --book book
+chrome --headless=new --disable-gpu --no-pdf-header-footer \
+  --print-to-pdf=book.pdf "file://$(pwd)/print.html"
 ```
 
-Review the final contact sheet using every relevant selected photo skill's quality gate and the book-editing critique.
-
-## Efficiency
-
-- Do not inspect or rewrite the vendored runtime.
-- Copy the template once and make one focused editing pass.
-- Do not install packages or retry unavailable image tools; the bundled contact-sheet script is sufficient for collection inspection.
-- Run the bundled contract test once after editing. Add a small targeted check only for requirements the contract does not cover; avoid large ad hoc validation scripts.
+Review the final contact sheet or preview using every relevant selected photo skill's quality gate and the book-editing critique, and verify the PDF page count equals the leaf count.
 
 ## Validation
 
 - Verify referenced assets exist and copied sources remain unchanged.
 - Run `node --test html-contract.test.mjs` after copying the runtime.
 - Check page count, order, cover density, source references, selected ratio, and matching cover colors programmatically.
-- On the editing path, verify the finished artwork order and inspect its page contact sheet.
+- On the editing path, verify the finished artwork order and inspect its page preview/contact sheet.
+- Confirm the sound wiring is present (audio ids, toggle button, `book-extra.js`, `window.__bookFlip`) and that missing audio files fail silently.
 - Do not use browser interaction to test animation. Do not claim animation was tested.
 - Do not claim PDF delivery unless a PDF file was actually generated and validated.
 - Report checks that passed and provide the start command.
